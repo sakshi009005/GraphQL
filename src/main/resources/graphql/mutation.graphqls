@@ -1,0 +1,36 @@
+type Mutation {
+ createUser(userRequest: UserRequest) : UserResponse
+ 
+ placeOrder(id : Int, orderRequest : OrderRequest) : String
+}
+
+input UserRequest {
+   firstName: String
+   lastName: String
+   age: Int
+}
+
+type UserResponse {
+   id: Int
+   firstName:String
+   lastName:String
+   age: Int
+}
+
+input OrderRequest {
+   orderDetails: [OrderDetails]
+}
+
+input OrderDetails {
+    orderType : OrderType;
+	name : String;
+	quantity : Int;
+    unit : String;
+}
+
+
+enum OrderType {
+    VEGETABLE,
+	FRUIT
+
+}

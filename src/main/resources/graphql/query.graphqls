@@ -1,0 +1,27 @@
+type Query {
+
+findUserById(id: Int): UserResponse
+
+getOrdersByUserId(userId : Int) : UserOrders
+}
+
+type UserOrders {
+   orders: [OrdersResponse]  
+}
+
+type OrdersResponse {
+   orderId : Int
+   orderDetails(orderType : OrderType) :	[OrderDetailsResponse]
+}
+
+type OrderDetailsResponse {
+    orderType : OrderType;
+	name : String;
+	quantity : Int;
+    unit : String;
+}
+
+enum OrderType {
+ VEGETABLE,
+ FRUIT
+}
